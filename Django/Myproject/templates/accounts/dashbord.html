@@ -1,0 +1,74 @@
+{% extends 'accounts/main.html' %}
+
+{% block content%}
+<section>
+    <br>
+    <div class="p-3 mb-2 bg-info text-white"><h1 class="text-center"> Dash Bord </h1></div>
+    <br>
+    {% include "accounts/stetus.html" %}
+    <hr>
+    <div class=" row">
+        <div class="col-md-5">
+            <div class="p-3 mb-2 bg-primary text-white"><h5 class="text-center"> Customers</h5></div>
+            <hr>
+            <div class=" card card-body">
+                <table class="table">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">id</th>
+                        <th scope="col"> Name</th>
+                        <th scope="col">Phone No.</th>
+                        <th> </th>
+    
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for i in cus %}
+                      <tr>
+                        <th scope="row">{{i.id}}</th>
+                        <td>{{i.name}}</td>
+                        <td>{{i.phone}}</td>
+                        <td><a class="nav-item nav-link" href="{% url 'customer' i.id %}">View</a></td>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>        
+
+            </div>
+                 
+        </div>
+
+        <div class="col-md-7">
+            <div class="p-3 mb-2 bg-primary text-white"><h5 class="text-center"> Orders</h5></div>
+                <hr>
+                <div class=" card card-body">
+                    <table class="table">
+                        <thead class="thead-dark">
+                          <tr>  <th scope="col">id</th>
+                                <th scope="col">Products</th>
+                                <th scope="col">Date order</th>
+                                <th scope="col">states</th>
+                                <th scope="col">update</th>
+                                <th scope="col">remove</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {% for i in order %}
+                          <tr>
+                            <th scope="row">{{i.id}}</th>
+                            <td>{{i.product}}</td>
+                            <td>{{i.date_created}}</td>
+                            <td>{{i.status}}</td>
+                            <td><a href="{% url 'update_order' i.id %}"><button type="button" class="btn btn-info">Update</button></a></td>
+                            <td><a href="{% url 'delete_order' i.id %}"><button type="button" class="btn btn-danger">Delete</button></a></td>
+                          </tr>
+                          {% endfor%}
+                        </tbody>
+                      </table>   
+
+                </div>
+                     
+        </div>
+    </div>
+</section>
+{% endblock %}

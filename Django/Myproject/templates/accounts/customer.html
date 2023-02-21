@@ -1,0 +1,79 @@
+{% extends 'accounts/main.html' %}
+
+{% block content%}
+
+<section>
+  <div class=" container">
+    <br>
+    <div class="card-deck">
+
+        <div class="card card-body">
+          <h5 class="text-center"> Customers</h5>
+          <div class="card-footer">
+            
+            <div class="text-center">
+              <a href="#"><button type="button" class="btn btn-info">Update</button></a></td>
+              <a href="#"><button type="button" class="btn btn-danger">Delete</button></a></td>
+              
+            </div>
+          </div>
+        </div>
+
+        <div class="card card-body">
+            <h5 class="text-center"> Details</h5>
+            <div class="card-footer">
+              <p> Name: {{cust.name}}</p>
+              <p> email: {{cust.email}} </p>
+              <p> phone no: {{cust.phone}} </p>
+            </div>
+          </div>
+
+          <div class="card card-body">
+            <h5 class="text-center"> Total Orders</h5>
+            <div class="card-footer">
+             <h1 class=" text-center">{{oc}}</h1>
+            </div>
+          </div>
+
+      </div>
+  </div>
+</section>
+<br>
+<hr>
+<br>
+<section>
+
+    <div class=" container">
+        <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Products</th>
+                <th scope="col">date</th>
+                <th scope="col">Status</th>
+                <th> </th>
+                <th> </th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for i in orders %}
+              <tr>
+                <th scope="row">{{i.id}}</th>
+                {% comment %} product {% endcomment %}
+                <td>{{i.product}}</td>
+                <td>{{i.date_created}}</td>
+                <td>{{i.status}}</td>
+                <td><a href="{% url 'update_order' i.id %}"><button type="button" class="btn btn-info">Update</button></a></td>
+                <td><a href="{% url 'delete_order' i.id %}"><button type="button" class="btn btn-danger">Delete</button></a></td>
+              
+              </tr>
+              {% endfor %}
+      
+            </tbody>
+          </table>
+          
+    </div>
+</section>
+
+
+{% endblock %}

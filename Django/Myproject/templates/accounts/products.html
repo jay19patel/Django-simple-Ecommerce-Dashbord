@@ -1,0 +1,33 @@
+{% extends 'accounts/main.html' %}
+
+{% block content%}
+
+
+<br><br><br>
+<section>
+    <div class="container">
+        <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Descriptions</th>
+              </tr>
+            </thead>
+            <tbody>
+            {%for i in list %}
+              <tr>
+                <th scope="row">{{i.id}}</th>
+                <td>{{i.name}}</td>
+                <td>{{i.price}}</td>
+                <td>{{i.description}}</td>
+              </tr>
+            {% endfor %}
+    
+            </tbody>
+          </table>
+    </div>
+    
+</section>
+{% endblock %}

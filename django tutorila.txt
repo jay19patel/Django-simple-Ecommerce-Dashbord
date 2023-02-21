@@ -1,0 +1,61 @@
+steps For Django Setup:
+
+
+1:
+-create virtual Environment (venv)
+-activate venv
+-install django and moduls
+
+2:
+-make django project 
+-make django app
+-connect project with app
+-set url in main project setting file 
+-set view and urls in apps file
+- strat project
+
+
+3:
+http response : txt print in page
+(django.http)
+render : html page render 
+(djago.shortcuts)
+
+
+4: 
+URLS: urls are mange the urls and use to render this urls which view connet with them
+VIEWS: view are a file ,they contain logics of whole projects and render html files 
+
+5:
+templates:
+-templates is a container of all htmls file
+-set templates in main project file in setting in TEMPLATES =[] => ['templates'] 
+same as which made in project file 
+- if ours html file in  subdirectory then make sure the subfile in template filr and when we 
+render thet file then take same paths as where html file have 
+
+6:
+context={}
+context contail all perameters of file 
+means contaxt have exchange data from html to view or database 
+
+7:
+templates inharitance :
+-dont repeat yourself
+-create one main html file and inherarite in all child html file
+-create bloks in main html for all block add here
+(jyare call thay koy html file ne to e main file na block part ma add they jay and pachi diplay thay)
+- so we create :
+	{% block content%}
+ 	content 
+	{% endblock %}
+-child file :
+	{% extends 'accounts/main.html' %}
+	{% block content%}
+ 	content 
+	{% endblock %}
+-if you some add html tag outside of block they not print
+	
+	
+
+

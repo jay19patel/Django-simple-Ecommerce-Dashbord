@@ -1,0 +1,21 @@
+{% extends 'accounts/main.html' %}
+
+{% block content%}
+
+<section>
+    <div class=" container">
+        <br><br>
+        <div class="p-3 mb-2 bg-primary text-white"><h5 class="text-center"> Delete Data </h5></div>
+        <form action="{% url 'delete_order' order.id %}" method="POST">
+            {% csrf_token%}
+            <h2> Are You  sure,{{order.product}} </h2>
+            {% comment %} <button type="submit" class="btn btn-danger">Submit</button> {% endcomment %}
+            <a class="btn btn-info" href="{% url 'dashbord' %}"> Back to Dash Bord</a>
+            <button type="submit" class="btn btn-primary">Submit</button>
+
+        </form>
+    </div>
+
+</section>
+
+{% endblock %}
